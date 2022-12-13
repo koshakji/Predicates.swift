@@ -152,10 +152,10 @@ final class Predicates_swiftTests: XCTestCase {
         XCTAssertTrue(trueNestedIntegerPredicate.evaluate(instance: object))
         XCTAssertTrue(trueObjectPredicate.evaluate(instance: object))
         
-        var falseIntegerPredicate = \Something.integer <= 0
-        var falseStringPredicate = \Something.string <= "gello"
-        var falseNestedIntegerPredicate = \Something.nested.nestedInteger <= 5
-        var falseObjectPredicate = \Something.nested <= NestedThing(nestedInteger: 5)
+        let falseIntegerPredicate = \Something.integer <= 0
+        let falseStringPredicate = \Something.string <= "gello"
+        let falseNestedIntegerPredicate = \Something.nested.nestedInteger <= 5
+        let falseObjectPredicate = \Something.nested <= NestedThing(nestedInteger: 5)
         
         XCTAssertFalse(falseIntegerPredicate.evaluate(instance: object))
         XCTAssertFalse(falseStringPredicate.evaluate(instance: object))
