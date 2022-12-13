@@ -111,8 +111,10 @@ extension HasSuffix: NSPredicateConvertible where Root: Keyable {
     }
 }
 
-//extension MatchesRegex: NSPredicateConvertible where Root: Keyable {
-//    func nsPredicate() -> NSPredicate {
-//        return NSPredicate(format: "\(key()) MATCHES %@", argumentArray: [self.value])
-//    }
-//}
+@available(macOS 13.0, *)
+@available(iOS 16, *)
+extension MatchesRegex: NSPredicateConvertible where Root: Keyable {
+    public func nsPredicate() -> NSPredicate {
+        return NSPredicate(format: "\(key()) MATCHES %@", argumentArray: [self.value])
+    }
+}
