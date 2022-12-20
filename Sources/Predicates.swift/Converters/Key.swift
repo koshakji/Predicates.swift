@@ -9,14 +9,9 @@ public protocol Key {
     var stringValue: String { get }
 }
 
-extension String: Key {
-    public var stringValue: String { self }
+extension Key where Self: RawRepresentable, Self.RawValue == String {
+    public var stringValue: String { rawValue }
 }
-
-extension Int: Key {
-    public var stringValue: String { "\(self)" }
-}
-
 
 public protocol Keyable {
     associatedtype Keys: Key
