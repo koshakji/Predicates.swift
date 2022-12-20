@@ -24,7 +24,7 @@ public protocol Keyable {
 }
 
 extension KeyPathValuePredicate where Root: Keyable {
-    func key() -> String {
+    public func key() -> String {
         guard let key = Root.keys[keyPath]?.stringValue else {
             fatalError()
         }
