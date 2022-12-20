@@ -1,5 +1,5 @@
 import XCTest
-@testable import Predicates_swift
+@testable import Predicates
 
 struct NestedThing: Comparable, Equatable {
     let nestedInteger: Int
@@ -20,7 +20,7 @@ struct Something {
     let nested: NestedThing
 }
 
-final class Predicates_swiftTests: XCTestCase {
+final class PredicatesTests: XCTestCase {
     let object = Something(
         integer: 1,
         string: "hello world",
