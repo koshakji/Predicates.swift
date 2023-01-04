@@ -5,13 +5,13 @@
 //  Created by Majd Koshakji on 1/11/22.
 //
 
-struct CustomPredicate<Root, Value>: Predicate {
-    let origin: (Root) -> Value
-    let value: Value
+public struct CustomPredicate<Root, Value>: ValuePredicate {
     
-    let compare: (Value, Value) -> Bool
+    public let origin: (Root) -> Value
     
-    func evaluate(instance: Root) -> Bool {
+    public let value: Value
+    public let compare: (Value, Value) -> Bool
+    public func evaluate(instance: Root) -> Bool {
         return self.compare(origin(instance), self.value)
     }
 }
