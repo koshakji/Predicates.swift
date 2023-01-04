@@ -8,7 +8,7 @@
 public struct BoolPredicate<Root>: ValuePredicate, ExpressibleByBooleanLiteral {
     public let value: Bool
     
-    init(value: Bool) {
+    public init(value: Bool) {
         self.value = value
     }
     
