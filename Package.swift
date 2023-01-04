@@ -14,7 +14,7 @@ let package = Package(
         .library(name: "PredicatesNSExtension",
                  targets: ["PredicatesNSExtension"]),
         .library(name: "PredicatesGRDBExtension",
-                 targets: ["PredicatesNSExtension"]),
+                 targets: ["PredicatesGRDBExtension"]),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
