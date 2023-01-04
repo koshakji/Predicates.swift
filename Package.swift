@@ -9,7 +9,9 @@ let package = Package(
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
             name: "Predicates",
-            targets: ["Predicates", "NSPredicateExtension"]),
+            targets: ["Predicates"]),
+        .library(name: "PredicatesNSExtension",
+                 targets: ["PredicatesNSExtension"]),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -22,7 +24,7 @@ let package = Package(
             name: "Predicates",
             dependencies: []
         ),
-        .target(name: "NSPredicateExtension", dependencies: ["Predicates"]),
+        .target(name: "PredicatesNSExtension", dependencies: ["Predicates"]),
         
         .testTarget(
             name: "PredicatesTests",
