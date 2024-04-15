@@ -35,11 +35,11 @@ final class PredicatesTests: XCTestCase {
         let trueNestedIntegerPredicate = \Something.nested.nestedInteger == 8
         let trueObjectPredicate = \Something.nested == NestedThing(nestedInteger: 8)
         
-        XCTAssertTrue(trueIntegerPredicate.evaluate(instance: object))
-        XCTAssertTrue(trueStringPredicate.evaluate(instance: object))
-        XCTAssertTrue(trueArrayPredicate.evaluate(instance: object))
-        XCTAssertTrue(trueNestedIntegerPredicate.evaluate(instance: object))
-        XCTAssertTrue(trueObjectPredicate.evaluate(instance: object))
+        XCTAssertTrue(trueIntegerPredicate.evaluate(object))
+        XCTAssertTrue(trueStringPredicate.evaluate(object))
+        XCTAssertTrue(trueArrayPredicate.evaluate(object))
+        XCTAssertTrue(trueNestedIntegerPredicate.evaluate(object))
+        XCTAssertTrue(trueObjectPredicate.evaluate(object))
         
         let falseIntegerPredicate = \Something.integer == 2
         let falseStringPredicate = \Something.string == "hello"
@@ -48,11 +48,11 @@ final class PredicatesTests: XCTestCase {
         let falseObjectPredicate = \Something.nested == NestedThing(nestedInteger: 5)
         
         
-        XCTAssertFalse(falseIntegerPredicate.evaluate(instance: object))
-        XCTAssertFalse(falseStringPredicate.evaluate(instance: object))
-        XCTAssertFalse(falseArrayPredicate.evaluate(instance: object))
-        XCTAssertFalse(falseNestedIntegerPredicate.evaluate(instance: object))
-        XCTAssertFalse(falseObjectPredicate.evaluate(instance: object))
+        XCTAssertFalse(falseIntegerPredicate.evaluate(object))
+        XCTAssertFalse(falseStringPredicate.evaluate(object))
+        XCTAssertFalse(falseArrayPredicate.evaluate(object))
+        XCTAssertFalse(falseNestedIntegerPredicate.evaluate(object))
+        XCTAssertFalse(falseObjectPredicate.evaluate(object))
     }
     
     func testGreaterThan() throws {
@@ -61,20 +61,20 @@ final class PredicatesTests: XCTestCase {
         let trueNestedIntegerPredicate = \Something.nested.nestedInteger > 5
         let trueObjectPredicate = \Something.nested > NestedThing(nestedInteger: 5)
         
-        XCTAssertTrue(trueIntegerPredicate.evaluate(instance: object))
-        XCTAssertTrue(trueStringPredicate.evaluate(instance: object))
-        XCTAssertTrue(trueNestedIntegerPredicate.evaluate(instance: object))
-        XCTAssertTrue(trueObjectPredicate.evaluate(instance: object))
+        XCTAssertTrue(trueIntegerPredicate.evaluate(object))
+        XCTAssertTrue(trueStringPredicate.evaluate(object))
+        XCTAssertTrue(trueNestedIntegerPredicate.evaluate(object))
+        XCTAssertTrue(trueObjectPredicate.evaluate(object))
         
         let falseIntegerPredicate = \Something.integer > 2
         let falseStringPredicate = \Something.string > "iello"
         let falseNestedIntegerPredicate = \Something.nested.nestedInteger > 10
         let falseObjectPredicate = \Something.nested > NestedThing(nestedInteger: 10)
         
-        XCTAssertFalse(falseIntegerPredicate.evaluate(instance: object))
-        XCTAssertFalse(falseStringPredicate.evaluate(instance: object))
-        XCTAssertFalse(falseNestedIntegerPredicate.evaluate(instance: object))
-        XCTAssertFalse(falseObjectPredicate.evaluate(instance: object))
+        XCTAssertFalse(falseIntegerPredicate.evaluate(object))
+        XCTAssertFalse(falseStringPredicate.evaluate(object))
+        XCTAssertFalse(falseNestedIntegerPredicate.evaluate(object))
+        XCTAssertFalse(falseObjectPredicate.evaluate(object))
     }
     
     func testLessThan() throws {
@@ -83,20 +83,20 @@ final class PredicatesTests: XCTestCase {
         let trueNestedIntegerPredicate = \Something.nested.nestedInteger < 10
         let trueObjectPredicate = \Something.nested < NestedThing(nestedInteger: 10)
         
-        XCTAssertTrue(trueIntegerPredicate.evaluate(instance: object))
-        XCTAssertTrue(trueStringPredicate.evaluate(instance: object))
-        XCTAssertTrue(trueNestedIntegerPredicate.evaluate(instance: object))
-        XCTAssertTrue(trueObjectPredicate.evaluate(instance: object))
+        XCTAssertTrue(trueIntegerPredicate.evaluate(object))
+        XCTAssertTrue(trueStringPredicate.evaluate(object))
+        XCTAssertTrue(trueNestedIntegerPredicate.evaluate(object))
+        XCTAssertTrue(trueObjectPredicate.evaluate(object))
         
         let falseIntegerPredicate = \Something.integer < 0
         let falseStringPredicate = \Something.string < "gello"
         let falseNestedIntegerPredicate = \Something.nested.nestedInteger < 5
         let falseObjectPredicate = \Something.nested < NestedThing(nestedInteger: 5)
         
-        XCTAssertFalse(falseIntegerPredicate.evaluate(instance: object))
-        XCTAssertFalse(falseStringPredicate.evaluate(instance: object))
-        XCTAssertFalse(falseNestedIntegerPredicate.evaluate(instance: object))
-        XCTAssertFalse(falseObjectPredicate.evaluate(instance: object))
+        XCTAssertFalse(falseIntegerPredicate.evaluate(object))
+        XCTAssertFalse(falseStringPredicate.evaluate(object))
+        XCTAssertFalse(falseNestedIntegerPredicate.evaluate(object))
+        XCTAssertFalse(falseObjectPredicate.evaluate(object))
     }
     
     func testGreaterThanOrEqual() throws {
@@ -105,30 +105,30 @@ final class PredicatesTests: XCTestCase {
         var trueNestedIntegerPredicate = \Something.nested.nestedInteger >= 5
         var trueObjectPredicate = \Something.nested >= NestedThing(nestedInteger: 5)
         
-        XCTAssertTrue(trueIntegerPredicate.evaluate(instance: object))
-        XCTAssertTrue(trueStringPredicate.evaluate(instance: object))
-        XCTAssertTrue(trueNestedIntegerPredicate.evaluate(instance: object))
-        XCTAssertTrue(trueObjectPredicate.evaluate(instance: object))
+        XCTAssertTrue(trueIntegerPredicate.evaluate(object))
+        XCTAssertTrue(trueStringPredicate.evaluate(object))
+        XCTAssertTrue(trueNestedIntegerPredicate.evaluate(object))
+        XCTAssertTrue(trueObjectPredicate.evaluate(object))
         
         trueIntegerPredicate = \Something.integer >= 1
         trueStringPredicate = \Something.string >= "hello world"
         trueNestedIntegerPredicate = \Something.nested.nestedInteger >= 8
         trueObjectPredicate = \Something.nested >= NestedThing(nestedInteger: 8)
         
-        XCTAssertTrue(trueIntegerPredicate.evaluate(instance: object))
-        XCTAssertTrue(trueStringPredicate.evaluate(instance: object))
-        XCTAssertTrue(trueNestedIntegerPredicate.evaluate(instance: object))
-        XCTAssertTrue(trueObjectPredicate.evaluate(instance: object))
+        XCTAssertTrue(trueIntegerPredicate.evaluate(object))
+        XCTAssertTrue(trueStringPredicate.evaluate(object))
+        XCTAssertTrue(trueNestedIntegerPredicate.evaluate(object))
+        XCTAssertTrue(trueObjectPredicate.evaluate(object))
         
         let falseIntegerPredicate = \Something.integer >= 2
         let falseStringPredicate = \Something.string >= "iello"
         let falseNestedIntegerPredicate = \Something.nested.nestedInteger >= 10
         let falseObjectPredicate = \Something.nested >= NestedThing(nestedInteger: 10)
         
-        XCTAssertFalse(falseIntegerPredicate.evaluate(instance: object))
-        XCTAssertFalse(falseStringPredicate.evaluate(instance: object))
-        XCTAssertFalse(falseNestedIntegerPredicate.evaluate(instance: object))
-        XCTAssertFalse(falseObjectPredicate.evaluate(instance: object))
+        XCTAssertFalse(falseIntegerPredicate.evaluate(object))
+        XCTAssertFalse(falseStringPredicate.evaluate(object))
+        XCTAssertFalse(falseNestedIntegerPredicate.evaluate(object))
+        XCTAssertFalse(falseObjectPredicate.evaluate(object))
     }
     
     func testLessThanOrEqual() throws {
@@ -137,30 +137,30 @@ final class PredicatesTests: XCTestCase {
         var trueNestedIntegerPredicate = \Something.nested.nestedInteger <= 10
         var trueObjectPredicate = \Something.nested <= NestedThing(nestedInteger: 10)
         
-        XCTAssertTrue(trueIntegerPredicate.evaluate(instance: object))
-        XCTAssertTrue(trueStringPredicate.evaluate(instance: object))
-        XCTAssertTrue(trueNestedIntegerPredicate.evaluate(instance: object))
-        XCTAssertTrue(trueObjectPredicate.evaluate(instance: object))
+        XCTAssertTrue(trueIntegerPredicate.evaluate(object))
+        XCTAssertTrue(trueStringPredicate.evaluate(object))
+        XCTAssertTrue(trueNestedIntegerPredicate.evaluate(object))
+        XCTAssertTrue(trueObjectPredicate.evaluate(object))
         
         trueIntegerPredicate = \Something.integer <= 1
         trueStringPredicate = \Something.string <= "hello world"
         trueNestedIntegerPredicate = \Something.nested.nestedInteger <= 8
         trueObjectPredicate = \Something.nested <= NestedThing(nestedInteger: 8)
         
-        XCTAssertTrue(trueIntegerPredicate.evaluate(instance: object))
-        XCTAssertTrue(trueStringPredicate.evaluate(instance: object))
-        XCTAssertTrue(trueNestedIntegerPredicate.evaluate(instance: object))
-        XCTAssertTrue(trueObjectPredicate.evaluate(instance: object))
+        XCTAssertTrue(trueIntegerPredicate.evaluate(object))
+        XCTAssertTrue(trueStringPredicate.evaluate(object))
+        XCTAssertTrue(trueNestedIntegerPredicate.evaluate(object))
+        XCTAssertTrue(trueObjectPredicate.evaluate(object))
         
         let falseIntegerPredicate = \Something.integer <= 0
         let falseStringPredicate = \Something.string <= "gello"
         let falseNestedIntegerPredicate = \Something.nested.nestedInteger <= 5
         let falseObjectPredicate = \Something.nested <= NestedThing(nestedInteger: 5)
         
-        XCTAssertFalse(falseIntegerPredicate.evaluate(instance: object))
-        XCTAssertFalse(falseStringPredicate.evaluate(instance: object))
-        XCTAssertFalse(falseNestedIntegerPredicate.evaluate(instance: object))
-        XCTAssertFalse(falseObjectPredicate.evaluate(instance: object))
+        XCTAssertFalse(falseIntegerPredicate.evaluate(object))
+        XCTAssertFalse(falseStringPredicate.evaluate(object))
+        XCTAssertFalse(falseNestedIntegerPredicate.evaluate(object))
+        XCTAssertFalse(falseObjectPredicate.evaluate(object))
     }
     
 }

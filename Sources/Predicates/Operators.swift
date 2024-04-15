@@ -8,8 +8,8 @@
 public struct Not<Root, Base>: UnaryPredicateOperator where Base: Predicate, Base.Root == Root {
     public let basePredicate: Base
 
-    public func evaluate(instance: Root) -> Bool {
-        return !self.basePredicate.evaluate(instance: instance)
+    public func evaluate(_ instance: Root) -> Bool {
+        return !self.basePredicate.evaluate(instance)
     }
 }
 
@@ -18,8 +18,8 @@ public struct And<Root, LHS, RHS>: BinaryPredicateOperator where LHS: Predicate<
     public let lhs: LHS
     public let rhs: RHS
 
-    public func evaluate(instance: Root) -> Bool {
-        return self.lhs.evaluate(instance: instance) && self.rhs.evaluate(instance: instance)
+    public func evaluate(_ instance: Root) -> Bool {
+        return self.lhs.evaluate(instance) && self.rhs.evaluate(instance)
     }
 }
 
@@ -27,8 +27,8 @@ public struct Or<Root, LHS, RHS>: BinaryPredicateOperator where LHS: Predicate<R
     public let lhs: LHS
     public let rhs: RHS
 
-    public func evaluate(instance: Root) -> Bool {
-        return self.lhs.evaluate(instance: instance) || self.rhs.evaluate(instance: instance)
+    public func evaluate(_ instance: Root) -> Bool {
+        return self.lhs.evaluate(instance) || self.rhs.evaluate(instance)
     }
 }
 

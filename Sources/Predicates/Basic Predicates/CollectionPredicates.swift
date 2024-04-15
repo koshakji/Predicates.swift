@@ -9,8 +9,8 @@ public struct Contains<Root, Container>: KeyPathValuePredicate where Container: 
     public let keyPath: KeyPath<Root, Container>
     public let value: Container.Element
     
-    public func evaluate(instance: Root) -> Bool {
-        return get(from: instance).contains(value)
+    public func evaluate(_ instance: Root) -> Bool {
+        return getKeyPathValue(from: instance).contains(value)
     }
 }
 
@@ -18,8 +18,8 @@ public struct ContainsSet<Root, Container>: KeyPathValuePredicate where Containe
     public let keyPath: KeyPath<Root, Container>
     public let value: Container.Element
     
-    public func evaluate(instance: Root) -> Bool {
-        return get(from: instance).contains(value)
+    public func evaluate(_ instance: Root) -> Bool {
+        return getKeyPathValue(from: instance).contains(value)
     }
 }
 

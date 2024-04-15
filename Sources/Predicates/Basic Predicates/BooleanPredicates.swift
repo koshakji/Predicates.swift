@@ -16,7 +16,7 @@ public struct BoolPredicate<Root>: ValuePredicate, ExpressibleByBooleanLiteral {
         self.init(value: value)
     }
     
-    public func evaluate(instance: Root) -> Bool {
+    public func evaluate(_ instance: Root) -> Bool {
         return value
     }
 }
@@ -24,7 +24,7 @@ public struct BoolPredicate<Root>: ValuePredicate, ExpressibleByBooleanLiteral {
 public struct BoolKeyPathPredicate<Root>: Predicate{
     public let keyPath: KeyPath<Root, Bool>
     
-    public func evaluate(instance: Root) -> Bool {
+    public func evaluate(_ instance: Root) -> Bool {
         return instance[keyPath: keyPath]
     }
 }

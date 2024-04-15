@@ -9,8 +9,8 @@ public struct Equals<Root, Value>: KeyPathValuePredicate where Value: Equatable 
     public let keyPath: KeyPath<Root, Value>
     public let value: Value
     
-    public func evaluate(instance: Root) -> Bool {
-        return self.get(from: instance) == self.value
+    public func evaluate(_ instance: Root) -> Bool {
+        return self.getKeyPathValue(from: instance) == self.value
     }
 }
 
@@ -19,8 +19,8 @@ public struct GreaterThan<Root, Value>: KeyPathValuePredicate where Value: Compa
     public let keyPath: KeyPath<Root, Value>
     public let value: Value
     
-    public func evaluate(instance: Root) -> Bool {
-        return self.get(from: instance) > self.value
+    public func evaluate(_ instance: Root) -> Bool {
+        return self.getKeyPathValue(from: instance) > self.value
     }
 }
 
@@ -29,8 +29,8 @@ public struct LessThan<Root, Value>: KeyPathValuePredicate where Value: Comparab
     public let keyPath: KeyPath<Root, Value>
     public let value: Value
     
-    public func evaluate(instance: Root) -> Bool {
-        return self.get(from: instance) < self.value
+    public func evaluate(_ instance: Root) -> Bool {
+        return self.getKeyPathValue(from: instance) < self.value
     }
 }
 
@@ -39,8 +39,8 @@ public struct GreaterThanOrEqual<Root, Value>: KeyPathValuePredicate where Value
     public let keyPath: KeyPath<Root, Value>
     public let value: Value
     
-    public func evaluate(instance: Root) -> Bool {
-        return self.get(from: instance) >= self.value
+    public func evaluate(_ instance: Root) -> Bool {
+        return self.getKeyPathValue(from: instance) >= self.value
     }
 }
 
@@ -48,8 +48,8 @@ public struct LessThanOrEqual<Root, Value>: KeyPathValuePredicate where Value: C
     public let keyPath: KeyPath<Root, Value>
     public let value: Value
     
-    public func evaluate(instance: Root) -> Bool {
-        return self.get(from: instance) <= self.value
+    public func evaluate(_ instance: Root) -> Bool {
+        return self.getKeyPathValue(from: instance) <= self.value
     }
 }
 
@@ -59,8 +59,8 @@ public struct InRange<Root, ValueRange>: KeyPathValuePredicate where ValueRange:
     public let keyPath: KeyPath<Root, ValueRange.Bound>
     public let value: ValueRange
     
-    public func evaluate(instance: Root) -> Bool {
-        return self.value.contains(self.get(from: instance))
+    public func evaluate(_ instance: Root) -> Bool {
+        return self.value.contains(self.getKeyPathValue(from: instance))
     }
     
 }

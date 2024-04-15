@@ -11,7 +11,7 @@ public struct CustomPredicate<Root, Value>: ValuePredicate {
     
     public let value: Value
     public let compare: (Value, Value) -> Bool
-    public func evaluate(instance: Root) -> Bool {
+    public func evaluate(_ instance: Root) -> Bool {
         return self.compare(origin(instance), self.value)
     }
 }
