@@ -13,7 +13,7 @@ public protocol DateKeyPathValuePredicate: KeyPathValuePredicate where KeyPathVa
 
 public extension DateKeyPathValuePredicate {
     func getComponent(component: Calendar.Component, from instance: Root) -> Int {
-        let date = self.get(from: instance)
+        let date = self.getKeyPathValue(from: instance)
         return calendar.component(component, from: date)
     }
 }
@@ -29,7 +29,7 @@ public struct Year<Root>: DateKeyPathValuePredicate {
         self.calendar = calendar
     }
     
-    public func evaluate(instance: Root) -> Bool {
+    public func evaluate(_ instance: Root) -> Bool {
         return self.getComponent(component: .year, from: instance) == value
     }
 }
@@ -45,7 +45,7 @@ public struct Month<Root>: DateKeyPathValuePredicate {
         self.calendar = calendar
     }
     
-    public func evaluate(instance: Root) -> Bool {
+    public func evaluate(_ instance: Root) -> Bool {
         return self.getComponent(component: .month, from: instance) == value
     }
 }
@@ -62,7 +62,7 @@ public struct Day<Root>: DateKeyPathValuePredicate {
         self.calendar = calendar
     }
     
-    public func evaluate(instance: Root) -> Bool {
+    public func evaluate(_ instance: Root) -> Bool {
         return self.getComponent(component: .day, from: instance) == value
     }
 }

@@ -8,7 +8,7 @@
 
 public protocol Predicate<Root> {
     associatedtype Root
-    func evaluate(instance: Root) -> Bool
+    func evaluate(_ instance: Root) -> Bool
 }
 
 public protocol ValuePredicate<Root, Value>: Predicate {
@@ -22,7 +22,7 @@ public protocol KeyPathValuePredicate<Root, KeyPathValue, Value>: ValuePredicate
 }
 
 public extension KeyPathValuePredicate {
-    func get(from instance: Root) -> KeyPathValue {
+    internal func getKeyPathValue(from instance: Root) -> KeyPathValue {
         return instance[keyPath: self.keyPath]
     }
 }
@@ -42,7 +42,7 @@ public protocol BinaryPredicateOperator<Root>: Predicate {
 
 public extension Collection {
     func filter(_ predicate: any Predicate<Element>) -> [Element] {
-        return self.filter(predicate.evaluate(instance:))
+        return self.filter(predicate.evaluate(_:))
     }
 }
 

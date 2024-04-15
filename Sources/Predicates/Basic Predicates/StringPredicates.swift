@@ -10,8 +10,8 @@ public struct StringContains<Root>: KeyPathValuePredicate {
     public let value: String
     public let caseSensitive: Bool
     
-    public func evaluate(instance: Root) -> Bool {
-        let string = get(from: instance)
+    public func evaluate(_ instance: Root) -> Bool {
+        let string = getKeyPathValue(from: instance)
         if caseSensitive {
             return string.contains(value)
         } else {
@@ -24,8 +24,8 @@ public struct HasPrefix<Root>: KeyPathValuePredicate {
     public let keyPath: KeyPath<Root, String>
     public let value: String
     
-    public func evaluate(instance: Root) -> Bool {
-        return get(from: instance).hasPrefix(value)
+    public func evaluate(_ instance: Root) -> Bool {
+        return getKeyPathValue(from: instance).hasPrefix(value)
     }
 }
 
@@ -33,8 +33,8 @@ public struct HasSuffix<Root>: KeyPathValuePredicate {
     public let keyPath: KeyPath<Root, String>
     public let value: String
     
-    public func evaluate(instance: Root) -> Bool {
-        return get(from: instance).hasSuffix(value)
+    public func evaluate(_ instance: Root) -> Bool {
+        return getKeyPathValue(from: instance).hasSuffix(value)
     }
 }
 
@@ -45,8 +45,8 @@ public struct MatchesRegex<Root, Value>: KeyPathValuePredicate where Value: Rege
     public let keyPath: KeyPath<Root, String>
     public let value: Value
     
-    public func evaluate(instance: Root) -> Bool {
-        return get(from: instance).contains(value)
+    public func evaluate(_ instance: Root) -> Bool {
+        return getKeyPathValue(from: instance).contains(value)
     }
 }
 
