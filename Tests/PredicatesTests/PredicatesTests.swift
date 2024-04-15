@@ -28,6 +28,37 @@ final class PredicatesTests: XCTestCase {
         nested: .init(nestedInteger: 8)
     )
     
+    func testREADME() throws {
+        struct Person: Equatable {
+            let name: String
+            var age: Int
+            var isDead: Bool
+        }
+        
+        let majd = Person(name: "Majd", age: 24, isDead: false)
+        let nidal = Person(name: "Nidal", age: 16, isDead: false)
+        let john = Person(name: "John", age: 70, isDead: false)
+        let thaer = Person(name: "Thaer", age: 17, isDead: true)
+        
+        let people = [
+            majd,
+            nidal,
+            john,
+            thaer,
+        ]
+        
+        let adultPredicate = \Person.age >= 18
+        XCTAssertTrue(adultPredicate.evaluate(majd))
+        XCTAssertFalse(adultPredicate.evaluate(nidal))
+        XCTAssertTrue(adultPredicate.evaluate(john))
+        XCTAssertFalse(adultPredicate.evaluate(thaer))
+        
+        XCTAssertEqual(people.filter(adultPredicate), [majd, john])
+
+        let eligibleForFreeMedicationPredicate = (\Person.age < 18 || \Person.age > 65) && !\Person.isDead
+        XCTAssertEqual(people.filter(eligibleForFreeMedicationPredicate), [nidal, john])
+    }
+    
     func testEquality() throws {
         let trueIntegerPredicate = \Something.integer == 1
         let trueStringPredicate = \Something.string == "hello world"
